@@ -10,7 +10,7 @@ class HBNBCommand(cmd.Cmd):
         return True
     
     def do_EOF(self, arg):
-        """Exit the program using Ctrl+D (EOF)"""
+        """Exit the program using Ctrl+D"""
         return True
 
 if __name__ == '__main__':
