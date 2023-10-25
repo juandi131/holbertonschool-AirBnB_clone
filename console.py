@@ -2,6 +2,7 @@
 import cmd
 
 
+"""This is a class"""
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
