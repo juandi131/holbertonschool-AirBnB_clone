@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+"""This is a class"""
 import cmd
 
 
-"""This is a class"""
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
@@ -13,6 +13,10 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """Exit the program using Ctrl+D"""
         return True
+
+    def emptyline(self):
+        """sexo"""
+        pass
 
 
 if __name__ == '__main__':
