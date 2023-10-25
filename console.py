@@ -2,7 +2,6 @@
 import cmd
 
 class HBNBCommand(cmd.Cmd):
-    intro = "Welcome to the console"
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
