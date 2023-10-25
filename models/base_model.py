@@ -6,12 +6,10 @@ from datetime import datetime
 
 class BaseModel:
     """defining the class"""
-    def __init__(self, otherId=None):
+    def __init__(self):
         """defining the init of the class Base Model"""
-        if otherId is not None:
-            self.id = otherId
-        else:
-            self.id = str(uuid.uuid4())
+        
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
