@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
+from models.engine.file_storage import storage
 """Creating a base model that defines common attributes"""
 
 
@@ -21,6 +22,7 @@ class BaseModel:
     def save(self):
         """Defining save public instance method"""
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """Defining to dict public instance method"""
