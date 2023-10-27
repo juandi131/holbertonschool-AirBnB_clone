@@ -3,7 +3,7 @@
 import cmd
 from models.base_model import *
 import sys
-
+from models import storage
 class HBNBCommand(cmd.Cmd):
     classes = {
         "BaseModel"
@@ -33,24 +33,30 @@ class HBNBCommand(cmd.Cmd):
             new_instance = BaseModel()
             new_instance.save()
             print(new_instance.id)
-    def do_show(self, arg):
-        """"""
-        if not arg:
+
+    def do_show(self, line):
+        """Muestra la representación en cadena de una instancia."""
+        args = line.split()
+        if len(args) == 0:
             print("** class name missing **")
+            return
+
+        class_name = args[0]
+        if class_name not in self.storage.objectClass:
+            print("** class doesn't exist **")
+            return
+
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        instance_id = args[1]
+        key = f"{class_name}.{instance_id}"
+        if key in self.storage.all():
+            instance = self.storage.all()[key]
+            print(instance)
         else:
-            args = arg.split()
-            if args[0] in self.cls:
-                if len(args) == 1:
-                    print("** instance id missing **")
-                else:
-                    key = args[0] + '.' + args[1]
-                    objects = storage.all()
-                    if key in objects:
-                        print(objects[key])
-                    else:
-                        print("** no instance found **")
-            else:
-                print("** class doesn't exist **")
+            print("** no instance found **")
 
     def do_destroy(self, arg):
         """ """
