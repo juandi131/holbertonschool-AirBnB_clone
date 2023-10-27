@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" The console for hbnb. """
+""" The console """
 import cmd
 from models import storage
 from models.amenity import Amenity
@@ -42,8 +42,8 @@ class HBNBCommand(cmd.Cmd):
         try:
             my_list = line.split(" ")
             objeto = eval(my_list[0])()
-            obj.save()
-            print(obj.id)
+            objeto.save()
+            print(objeto.id)
         except SyntaxError:
             print("** class name missing **")
         except NameError:
@@ -101,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, line):
-        """imprime todas las instancas"""
+        """imprime todo"""
         objects = storage.all()
         my_list = []
         if not line:
