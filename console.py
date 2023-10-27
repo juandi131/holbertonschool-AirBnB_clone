@@ -15,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     """ Definition of the hbnb console. """
 
     prompt = "(hbnb) "
-    classes = {
+    clas = {
         "BaseModel",
         "User",
         "Place",
@@ -25,23 +25,24 @@ class HBNBCommand(cmd.Cmd):
         "Review"
     }
 
-    def emptyline(self):
-        pass
-
-    def do_quit(self, line):
-        """Quit the console."""
-        return True
-
     def do_EOF(self, line):
         """Quit console at EOF."""
         print("")
         return True
 
+    def do_quit(self, line):
+        """Quit the console."""
+        return True
+
+    
+    def emptyline(self):
+        pass
+
     def do_create(self, line):
         """Crea una nueva instancia"""
         try:
-            my_list = line.split(" ")
-            objeto = eval(my_list[0])()
+            list = line.split(" ")
+            objeto = eval(list[0])()
             objeto.save()
             print(objeto.id)
         except SyntaxError:
@@ -55,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
             if not line:
                 raise SyntaxError()
             my_list = line.split(" ")
-            if my_list[0] not in self.classes:
+            if my_list[0] not in self.clas:
                 raise NameError()
             if len(my_list) < 2:
                 raise IndexError()
@@ -79,13 +80,13 @@ class HBNBCommand(cmd.Cmd):
         try:
             if not line:
                 raise SyntaxError()
-            my_list = line.split(" ")
-            if my_list[0] not in self.classes:
+            lista = line.split(" ")
+            if lista[0] not in self.clas:
                 raise NameError()
-            if len(my_list) < 2:
+            if len(lista) < 2:
                 raise IndexError()
             objects = storage.all()
-            key = my_list[0] + '.' + my_list[1]
+            key = lista[0] + '.' + lista[1]
             if key in objects:
                 del objects[key]
                 storage.save()
@@ -103,21 +104,21 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         """imprime todo"""
         objects = storage.all()
-        my_list = []
+        lista = []
         if not line:
             for key in objects:
-                my_list.append(str(objects[key]))
-            print(my_list)
+                lista.append(str(objects[key]))
+            print(lista)
             return
         try:
             args = line.split(" ")
-            if args[0] not in self.classes:
+            if args[0] not in self.clas:
                 raise NameError()
             for key in objects:
                 name = key.split('.')
                 if name[0] == args[0]:
-                    my_list.append(str(objects[key]))
-            print(my_list)
+                    lista.append(str(objects[key]))
+            print(lista)
         except NameError:
             print("** class doesn't exist **")
 
