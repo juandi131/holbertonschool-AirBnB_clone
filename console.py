@@ -121,7 +121,6 @@ class HBNBCommand(cmd.Cmd):
         except NameError:
             print("** class doesn't exist **")
 
-
     def do_update(self, line):
         """Updates"""
         try:
@@ -145,7 +144,7 @@ class HBNBCommand(cmd.Cmd):
                     v.__dict__[lista[2]] = eval(lista[3])
                     v.save()
                     return
-                
+
         except IndexError:
             print("** instance id missing **")
         except AttributeError:
@@ -162,4 +161,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-    
