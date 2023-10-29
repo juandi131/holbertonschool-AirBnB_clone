@@ -5,6 +5,4 @@ from models.base_model import BaseModel
 
 class State(BaseModel):
     """Creating Class State that inherits from Base Model"""
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.name = ""
+    name = ""
