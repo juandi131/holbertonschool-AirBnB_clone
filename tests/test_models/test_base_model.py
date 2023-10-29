@@ -3,6 +3,8 @@
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
+from unittest.mock import patch
+from models.engine.file_storage import FileStorage
 
 
 class TestBaseModel(unittest.TestCase):
@@ -51,10 +53,10 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         model = BaseModel()
-        initUpdated_at = model.updated_at
-        model.save()
-        updtUpdated_at = model.updated_at
-        self.assertNotEqual(initUpdated_at, updtUpdated_at)
+        with unittest.mock.patch.object(FileStorage, "save") as saved:
+            model.save()
+            saved.assert_called_once()
+
 
 if __name__ == '__main__':
     unittest.main()
