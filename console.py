@@ -17,12 +17,12 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     clas = {
         "BaseModel",
-        "User",
-        "Place",
-        "State",
-        "City",
         "Amenity",
-        "Review"
+        "City",
+        "State",
+        "Place",
+        "Review",
+        "User"
     }
 
     def do_EOF(self, line):
@@ -54,15 +54,15 @@ class HBNBCommand(cmd.Cmd):
         try:
             if not line:
                 raise SyntaxError()
-            my_list = line.split(" ")
-            if my_list[0] not in self.clas:
-                raise NameError()
-            if len(my_list) < 2:
+            lista = line.split(" ")
+            if len(lista) < 2:
                 raise IndexError()
-            objects = storage.all()
-            key = my_list[0] + '.' + my_list[1]
-            if key in objects:
-                print(objects[key])
+            if lista[0] not in self.clas:
+                raise NameError()
+            objetos = storage.all()
+            key = lista[0] + '.' + lista[1]
+            if key in objetos:
+                print(objetos[key])
             else:
                 raise KeyError()
         except SyntaxError:
@@ -80,14 +80,14 @@ class HBNBCommand(cmd.Cmd):
             if not line:
                 raise SyntaxError()
             lista = line.split(" ")
-            if lista[0] not in self.clas:
-                raise NameError()
             if len(lista) < 2:
                 raise IndexError()
-            objects = storage.all()
+            if lista[0] not in self.clas:
+                raise NameError()
+            objectos = storage.all()
             key = lista[0] + '.' + lista[1]
-            if key in objects:
-                del objects[key]
+            if key in objectos:
+                del objectos[key]
                 storage.save()
             else:
                 raise KeyError()
@@ -127,22 +127,22 @@ class HBNBCommand(cmd.Cmd):
         try:
             if not line:
                 raise SyntaxError()
-            my_list = line.split(" ")
-            if my_list[0] not in self.clas:
+            lista = line.split(" ")
+            if lista[0] not in self.clas:
                 raise NameError()
-            if len(my_list) < 2:
+            if len(lista) < 2:
                 raise IndexError()
             objects = storage.all()
-            key = my_list[0] + '.' + my_list[1]
+            key = lista[0] + '.' + lista[1]
             if key not in objects:
                 raise KeyError()
-            if len(my_list) < 3:
+            if len(lista) < 3:
                 raise AttributeError()
-            if len(my_list) < 4:
+            if len(lista) < 4:
                 raise ValueError()
             for k, v in objects.items():
                 if k == key:
-                    v.__dict__[my_list[2]] = eval(my_list[3])
+                    v.__dict__[lista[2]] = eval(lista[3])
                     v.save()
                     return
                 
