@@ -49,7 +49,12 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(obj_dict['updated_at'],
                          self.model.updated_at.isoformat())
 
-
+    def test_save(self):
+        model = BaseModel()
+        initUpdated_at = model.updated_at
+        model.save()
+        updtUpdated_at = model.updated_at
+        self.assertNotEqual(initUpdated_at, updtUpdated_at)
 
 if __name__ == '__main__':
     unittest.main()
