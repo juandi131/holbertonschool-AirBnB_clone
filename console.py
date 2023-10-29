@@ -34,17 +34,8 @@ class HBNBCommand(cmd.Cmd):
         """Quit the console."""
         return True
 
-    
     def emptyline(self):
         pass
-<<<<<<< HEAD
-    
-    def do_create(self, arg):
-        obj = BaseModel()
-        obj.save()
-        print(obj.id)
-        
-=======
 
     def do_create(self, line):
         """Crea una nueva instancia"""
@@ -130,7 +121,45 @@ class HBNBCommand(cmd.Cmd):
         except NameError:
             print("** class doesn't exist **")
 
->>>>>>> 0a4ce58aa89ab9f080faed100edccfb8e7abfee3
+
+    def do_update(self, line):
+        """Updates"""
+        try:
+            if not line:
+                raise SyntaxError()
+            my_list = line.split(" ")
+            if my_list[0] not in self.clas:
+                raise NameError()
+            if len(my_list) < 2:
+                raise IndexError()
+            objects = storage.all()
+            key = my_list[0] + '.' + my_list[1]
+            if key not in objects:
+                raise KeyError()
+            if len(my_list) < 3:
+                raise AttributeError()
+            if len(my_list) < 4:
+                raise ValueError()
+            for k, v in objects.items():
+                if k == key:
+                    v.__dict__[my_list[2]] = eval(my_list[3])
+                    v.save()
+                    return
+                
+        except IndexError:
+            print("** instance id missing **")
+        except AttributeError:
+            print("** attribute name missing **")
+        except SyntaxError:
+            print("** class name missing **")
+        except NameError:
+            print("** class doesn't exist **")
+        except ValueError:
+            print("** value missing **")
+        except KeyError:
+            print("** no instance found **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
+    
