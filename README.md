@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="/"><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231029%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20231029T005404Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=494099e316ee40b0e57b69bca9937330482194248b610c3caf93f8fa3eccfdba" alt="AirBnB clone"></a>
+  <a href="/"><img src="https://brandemia.org/sites/default/files/sites/default/files/bnb_billboard_01-2000x1125.jpg" alt="AirBnB clone" with=150px height=150px></a>
   <br>
   AirBnB clone - The Console
   <br>
@@ -56,19 +56,17 @@ You can [download](https://github.com/juandi131/holbertonschool-AirBnB_clone/arc
 
 ## Given Task
 
-<code>
-    0. README, AUTHORS <br>
-    1. Be pycodestyle compliant! <br>
-    2. Unittests. <br>
-    3. BaseModel <br>
-    4. Create BaseModel from dictionary <br>
-    5. Store first object. <br>
-    6. Console 0.0.1 <br>
-    7. Console 0.1 <br>
-    8. First User <br>
-    9. More classes! <br>
-    10. Console 1.0 <br>
-</code>
+  0. [x] README, AUTHORS <br>
+  1. [x] Be pycodestyle compliant! <br>
+  2. [x] Unittests. <br>
+  3. [x] BaseModel <br>
+  4. [x] Create BaseModel from dictionary <br>
+  5. [x] Store first object. <br>
+  6. [x] Console 0.0.1 <br>
+  7. [x] Console 0.1 <br>
+  8. [x] First User <br>
+  9. [x] More classes! <br>
+  10. [x] Console 1.0 <br>
 <br>
 Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
 
