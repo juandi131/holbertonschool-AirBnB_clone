@@ -79,6 +79,10 @@ Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning
 - [Github](https://github.com)
 - [Pycodestyle](https://pypi.org/project/pycodestyle/)
 
+## Authors
+  - [Mateo Zovko](https://github.com/MateoZouko)
+  - [Juan Diego Garcia](https://github.com/juandi131)
+    
 ## License
 
 Open Source
