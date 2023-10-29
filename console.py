@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This is a class"""
 import cmd
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -17,7 +18,12 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """sexo"""
         pass
-
+    
+    def do_create(self, arg):
+        obj = BaseModel()
+        obj.save()
+        print(obj.id)
+        
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
