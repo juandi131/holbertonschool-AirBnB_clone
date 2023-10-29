@@ -7,7 +7,7 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 
-"""Writing a class FileStorage that serializes 
+"""Writing a class FileStorage that serializes
 nstances to a JSON file and deserializes JSON
 file to instances:"""
 
@@ -18,16 +18,16 @@ class FileStorage():
     __objects = {}
     objectClass = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity,
                    "City": City, "Place": Place, "Review": Review}
-        
+
     def all(self):
         """ returns the dictionary __objects"""
         return self.__objects
-    
+
     def new(self, obj):
         """ sets in __objects the obj with key <obj class name>.id"""
         key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj
-        
+
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
         try:
